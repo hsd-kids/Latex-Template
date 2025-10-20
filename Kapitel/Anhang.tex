@@ -1,0 +1,48 @@
+\chapter*{Anhang}\label{ch:anhang}
+
+Der Anhang dient zur Aufnahme ergänzender Informationen, die den Lesefluss im Haupttext stören würden, aber zur Nachvollziehbarkeit beitragen.
+
+\chapter*{Nützliche Befehle}
+
+\section{Zitation mit biblatex}
+Zitiere im Text mit \verb|\autocite{schluessel}| oder \verb|\textcite{schluessel}|. 
+Die Bibliographie wird am Dokumentende mit \verb|\printbibliography| ausgegeben.
+Beispiel: Die Methode folgt \cite{knuth1984texbook}.
+
+\section{Abbildungen mit graphicx und caption}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.4\imgwidth, keepaspectratio]{Abbildungen/fhlogo_hsd}
+  \caption{Beispielabbildung mit sinnvoller Bildunterschrift.}
+  \label{fig:beispiel}
+\end{figure}
+Siehe Verweis in Textform: Abb.~\ref{fig:beispiel}.
+
+
+
+\section{Mathematische Formeln (amsmath, siunitx)}
+Skalare: $a\in\mathbb{R}$, Vektoren: $\mathbf{x}\in\mathbb{R}^{n}$, Matrizen: $\mathbf{A}\in\mathbb{R}^{m\times n}$. Einheiten mit \texttt{siunitx}:
+Leistung $P=\SI{10}{\watt}$, Frequenz $f=\SI{1}{\kilo\hertz}$.
+\begin{align}
+\mathbf{y} &= \mathbf{A}\mathbf{x} + \boldsymbol{\varepsilon},\\
+\mathcal{L}\{x(t)\} &= X(s) = \int_{0}^{\infty} x(t)\,e^{-st}\,\mathrm{d}t.
+\end{align}
+
+\section{Akronyme}
+% Definitionen typischerweise in einer separaten Datei -> acronym.tex:
+%\acro{ml}[ML]{maschinelles Lernen (engl. maschine learning)}
+Im Text beim ersten Auftreten: \ac{ml}; danach Kurzform automatisch.
+
+
+\section{Codeblöcke}
+
+%tcolorbox + verbatim (ohne externes Highlighting)
+\begin{pyblock}
+for i in range(3):\\
+    print(i)\\
+\end{pyblock}
+
+\begin{minted}{python}
+print("Hello World")
+\end{minted}

@@ -1,0 +1,8 @@
+services:
+  latex:
+    build: .
+    working_dir: /work
+    volumes:
+      - ./:/work
+    user: "${UID:-1000}:${GID:-1000}"
+    entrypoint: ["make"]

@@ -1,0 +1,87 @@
+\documentclass[
+12pt,
+oneside,
+openright,
+listof = totoc,
+bibliography = totoc,
+%index = totoc]{scrartcl}
+index = totoc]{scrreprt}
+
+\usepackage[
+a4paper,
+width=150mm,
+top=25mm,
+bottom=25mm,
+bindingoffset=6mm]{geometry}
+
+
+\input{defaults/preambel}
+\input{defaults/shortcuts_new_lengths}
+
+\sloppy
+\begin{document}
+	\pagenumbering{gobble}
+
+	\input{defaults/Frontpage}
+
+	\clearpage
+
+	\input{Kapitel/00_Abstract}
+	\clearpage
+
+	%Numbering pages with arabic characters
+	\pagenumbering{roman}
+
+	%Creates the table of contents
+    \tableofcontents
+	\clearpage
+
+	%Creates the list of figures
+	\listoffigures
+	\clearpage
+
+	%Creates the list of tables
+	\listoftables
+	\clearpage
+
+	\clearpage
+
+	%Creates the list of abbreviations and symbols
+	\chapter*{Abkürzungsverzeichnis}
+	\input{defaults/acronym}
+	\clearpage
+	\chapter*{Symbolverzeichnis}
+	\input{defaults/symbols}
+	\clearpage
+
+	%Inputs Chapters
+	\pagenumbering{arabic}
+	\include{Kapitel/01_Einleitung}
+	\include{Kapitel/02_Theorie}
+	\include{Kapitel/03_Methodik}
+	\include{Kapitel/04_Ergebnisse}
+	\include{Kapitel/05_Diskussion}
+	\include{Kapitel/06_Fazit-Ausblick}
+
+	% \clearpage
+
+	%Numbering changes to roman characters
+	\pagenumbering{roman}
+	%Numbering starts at 4
+	\setcounter{page}{5}
+
+	%Prints bibliography
+	\printbibliography
+	\clearpage
+
+	%Inputs the appendix
+	\renewcommand\thechapter{\Alph{chapter}}
+	\setcounter{chapter}{0}
+	\include{Kapitel/Anhang}
+	% \clearpage
+
+	%Inputs the affidavit
+	\include{defaults/Eigenstaendigkeit}
+	% \clearpage
+
+\end{document}

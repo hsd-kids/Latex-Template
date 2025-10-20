@@ -1,0 +1,115 @@
+% Preamble of the term paper
+
+% Header and footer
+\usepackage[headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\lohead{\Ifthispageodd{\headmark}{\thepage}}
+\rohead{\Ifthispageodd{\thepage}{\headmark}}
+
+% automatic filling of the header with current section/section:
+\automark[subsection]{section}
+
+
+% Reference table of contents
+% Define list of abbreviations and symbols
+% Remove period after abbreviations
+% Create directories:
+
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage[nonumberlist, symbols, toc]{glossaries}
+\usepackage[nohyperlinks]{acronym}
+
+\renewcommand*{\glspostdescription}{}
+\makeglossaries
+
+
+% Insert PDF file
+% Insert graphic
+% Subdivision of figures as a substitute for subfig and subfigure
+% Create vector graphic in latex
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{epstopdf}
+
+% Description of floating objects
+% Images and tables surrounded by font
+% Control floating objects
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{float}
+
+
+% Insertion of extended mathematical environments
+% Extension of the mathematical character set
+% Numbering of equations, starting with the subchapter
+% Transformation symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{trfsigns}
+\numberwithin{equation}{subsection}
+
+% Tableformatter
+\usepackage{tabularx}
+
+% Call definition
+% Call examples
+\newtheorem{defi}{Definition}[subsection]
+\newtheorem{bsp}{Beispiel}[subsection]
+
+
+% Direct input of umlauts
+% Separation of words with umlauts
+% Language adjustment
+% Insert special characters
+% Display units
+% German typographic convention for SIUNITX
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{latexsym}
+\usepackage{siunitx}
+\sisetup{
+	locale = DE,
+	per-mode = symbol,
+	group-separator = \,
+}
+
+% Create bibliography with JabRef
+% Insert bibliography via JabRef
+\usepackage[
+backend=biber,
+style=numeric,
+bibencoding=utf8,
+doi=false,
+isbn=false,
+url=true,
+sorting=none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{Quellen/quellen.bib}
+
+
+% Command to display Roman numerals
+\newcommand{\lowroman}[1]{\romannumeral#1\relax}
+
+% Use description, itemize and enumerate
+% Tabular formatting
+% Source Code
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{pythonhighlight}
+
+
+% Settings for listings
+\usepackage{minted}
+\usepackage{verbatim}
+\usepackage{tcolorbox}
+\newtcolorbox{pyblock}{
+  colback=gray!5!white,
+  colframe=gray!80!black,
+  fontupper=\ttfamily,
+  left=2mm, right=2mm, top=1mm, bottom=1mm,
+  before skip=10pt, after skip=10pt
+}
